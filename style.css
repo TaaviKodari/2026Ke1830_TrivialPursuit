@@ -48,3 +48,14 @@ button{
     font-size: 2.2rem;
     font-weight: bold;
 }
+
+.player-image{
+    width: 4rem;
+}
+
+[data-category="maantieto"] {background: #205ea5;}
+[data-category="yleistieto"] {background: #d70d7c;}
+[data-category="historia"] {background: #e91908;}
+[data-category="kulttuuri"] {background: #753ca9;}
+[data-category="tiede"] {background: #03923c;}
+[data-category="urheilu"] {background: #eb700a;}

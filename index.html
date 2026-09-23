@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triviaali</title>
     <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
 </head>
 
 <body>
@@ -19,7 +20,9 @@
 
         <article class="player-card">            
             <h2>Pelaaja</h2>
-            <img src="images/player.jpg">
+            
+            <img src="images/player.jpg" class="player-image">
+
             <p>Kerätyt aihealueet</p>
         
             <section class="question-panel"> 
@@ -33,6 +36,7 @@
             <h2>Pelaaja</h2>
             <button>Heitä noppaa</button>
             <div class="dice">-</div>
+            <div id="board" class="board"></div>
         </section>
 
         <article class="player-card">
