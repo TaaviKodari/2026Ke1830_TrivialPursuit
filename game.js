@@ -11,12 +11,31 @@ const BOARD_SIZE = 18;
 
 const boardElement = document.querySelector("#board");
 
+createBoard();
+
 function createBoardCoordinates(){
     const coordinates = [];
 
-    //TODO koordinaattien täyttäminen
+    //Ylärivi
+    for(let column = 1; column <= 7; column += 1){
+        coordinates.push({row:1, column});
+    }
+    //oikea reuna
+    for(let row = 2; row <= 4; row +=1){
+        coordinates.push({row, column: 7});
+    }
 
+    //alarivi
+    for(let column = 6; column >= 1; column -=1){
+        coordinates.push({row:4, column});
+    }
 
+    //vasen reuna
+    for(let row = 3; row >= 2; row -= 1){
+        coordinates.push({row, column: 1});
+    }
+
+    console.log(coordinates);
     return coordinates;
 }
 
@@ -24,5 +43,11 @@ function createBoard(){
 
     const coordinates = createBoardCoordinates();
 
-    //TODO luodan kategoria elementit
+    for(let index = 0; index < BOARD_SIZE; index += 1){
+
+        const category = CATEGORIES[index % CATEGORIES.length];
+        console.log(category);
+        //boardElement.append(space);
+    }
+
 }
