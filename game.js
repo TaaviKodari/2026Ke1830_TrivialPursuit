@@ -46,8 +46,17 @@ function createBoard(){
     for(let index = 0; index < BOARD_SIZE; index += 1){
 
         const category = CATEGORIES[index % CATEGORIES.length];
-        console.log(category);
-        //boardElement.append(space);
+        //console.log(category);
+        const coordinate = coordinates[index];
+        const space = document.createElement("div");
+        space.className = "space";
+        space.dataset.spaceIndex = index;
+
+        space.style.gridColumn = coordinate.column;
+        space.style.gridRow = coordinate.row;
+        space.dataset.category = category.id;
+        space.textContent = category.name;
+        boardElement.append(space);
     }
 
 }

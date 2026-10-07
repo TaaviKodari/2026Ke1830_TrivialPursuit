@@ -53,6 +53,21 @@ button{
     width: 4rem;
 }
 
+.board{
+    display:grid;
+}
+
+
+.space{
+    position: relative;
+    display: grid;
+    place-items: center;
+    border-radius: 0,75rem;
+    text-align: center;
+    color: #111827;
+    background-color: grey;
+}
+
 [data-category="maantieto"] {background: #205ea5;}
 [data-category="yleistieto"] {background: #d70d7c;}
 [data-category="historia"] {background: #e91908;}
