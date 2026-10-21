@@ -55,6 +55,12 @@ button{
 
 .board{
     display:grid;
+    grid-template-columns: repeat(7,1fr);
+    grid-template-rows: repeat(4,70px);
+    gap:0.45rem;
+    padding: 0.75rem;
+    background: #cbd5e1;
+    border-radius: 1rem;
 }
 
 
@@ -62,7 +68,7 @@ button{
     position: relative;
     display: grid;
     place-items: center;
-    border-radius: 0,75rem;
+    border-radius: 0.75rem;
     text-align: center;
     color: #111827;
     background-color: grey;

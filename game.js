@@ -11,7 +11,15 @@ const BOARD_SIZE = 18;
 
 const boardElement = document.querySelector("#board");
 
+const gameState = {
+    player: {
+        name:"Pelaaja",
+        position: 0,
+    }
+};
+
 createBoard();
+updateTokens();
 
 function createBoardCoordinates(){
     const coordinates = [];
@@ -59,4 +67,15 @@ function createBoard(){
         boardElement.append(space);
     }
 
+}
+
+function updateTokens(){
+
+    const currentSpace = document.querySelector(`[data-space-index = "${gameState.player.position}"]`);
+
+    const token = document.createElement("span");
+
+    token.textContent= "P";
+    
+    currentSpace.append(token);
 }
