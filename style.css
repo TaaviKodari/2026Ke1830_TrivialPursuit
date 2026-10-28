@@ -74,6 +74,24 @@ button{
     background-color: grey;
 }
 
+.token{
+    position: absolute;
+    right: 0.3rem;
+    bottom: 0.3rem;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid white;
+    color: white;
+    font-size: 0.75rem;
+}
+
+.player-token{
+    background-color: #111827;
+}
+
 [data-category="maantieto"] {background: #205ea5;}
 [data-category="yleistieto"] {background: #d70d7c;}
 [data-category="historia"] {background: #e91908;}

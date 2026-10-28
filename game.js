@@ -10,6 +10,9 @@ const CATEGORIES = [
 const BOARD_SIZE = 18;
 
 const boardElement = document.querySelector("#board");
+const diceElement = document.querySelector("#dice");
+
+
 
 const gameState = {
     player: {
@@ -17,6 +20,8 @@ const gameState = {
         position: 0,
     }
 };
+
+diceElement.addEventListener("click", rollDice);
 
 createBoard();
 updateTokens();
@@ -75,7 +80,17 @@ function updateTokens(){
 
     const token = document.createElement("span");
 
+    token.className = "token player-token";
+
     token.textContent= "P";
     
     currentSpace.append(token);
+}
+
+function rollDice(){
+    console.log("Heitä noppaa");
+}
+
+function movePlayer(steps){
+
 }
