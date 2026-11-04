@@ -76,6 +76,10 @@ function createBoard(){
 
 function updateTokens(){
 
+    document.querySelectorAll(".token").forEach((token) =>{
+        token.remove();
+    });
+
     const currentSpace = document.querySelector(`[data-space-index = "${gameState.player.position}"]`);
 
     const token = document.createElement("span");
@@ -89,8 +93,21 @@ function updateTokens(){
 
 function rollDice(){
     console.log("Heitä noppaa");
+    const result = Math.floor(Math.random() * 6) + 1;
+    console.log(result);
+    diceElement.textContent = result;
+    movePlayer(result);
 }
 
 function movePlayer(steps){
 
+    const player = gameState.player;
+    player.position = (player.position + steps) % BOARD_SIZE;
+    updateTokens();
+    const category = getCategoryAtPosition(player.position);
+    console.log(category);
+}
+
+function getCategoryAtPosition(position){
+    return  CATEGORIES[position % CATEGORIES.length];
 }
