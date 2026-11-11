@@ -9,6 +9,8 @@ const CATEGORIES = [
 
 const BOARD_SIZE = 18;
 
+const API_URL = "https://oma-trivia-api-0f8ffa1eed2e.herokuapp.com/api/questions";
+
 const boardElement = document.querySelector("#board");
 const diceElement = document.querySelector("#dice");
 
@@ -99,15 +101,46 @@ function rollDice(){
     movePlayer(result);
 }
 
-function movePlayer(steps){
+async function movePlayer(steps){
 
     const player = gameState.player;
     player.position = (player.position + steps) % BOARD_SIZE;
     updateTokens();
     const category = getCategoryAtPosition(player.position);
     console.log(category);
+    //testaaan fetchQuestion
+    const question = await fetchQuestion(category.id);
+    console.log(question);
 }
 
 function getCategoryAtPosition(position){
     return  CATEGORIES[position % CATEGORIES.length];
+}
+
+async function fetchQuestion(category){
+    const response = await fetch(API_URL,{
+        method: "POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            category: category,
+            difficulty: "helppo",
+            ageGroup:"10-12",
+            count: 1,
+            language: "suomi"
+        })
+    });
+
+    if(!response.ok){
+        throw new Error(
+            `Kysymyksen haku epäonnistui (${response.status})`
+        );
+    }
+
+    const data = await response.json();
+    console.log(data);
+    
+    return data.questions[0]; 
+
 }
