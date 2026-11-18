@@ -14,7 +14,9 @@ const API_URL = "https://oma-trivia-api-0f8ffa1eed2e.herokuapp.com/api/questions
 const boardElement = document.querySelector("#board");
 const diceElement = document.querySelector("#dice");
 
-
+//questionPanel myöhemmin
+const questionCategory = document.querySelector("#question-category");
+const questionText = document.querySelector("#question-text");
 
 const gameState = {
     player: {
@@ -108,9 +110,14 @@ async function movePlayer(steps){
     updateTokens();
     const category = getCategoryAtPosition(player.position);
     console.log(category);
-    //testaaan fetchQuestion
+
+    questionCategory.textContent = category.name;
+
+    questionText.textContent = "Haetaan kysymystä...";
+
     const question = await fetchQuestion(category.id);
     console.log(question);
+
 }
 
 function getCategoryAtPosition(position){
